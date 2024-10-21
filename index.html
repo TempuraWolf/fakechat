@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Chat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="contact-info">
+		<img src="https://iili.io/2369WAB.png" alt="Fake Back Arrow" class="fake-back-arrow">
+		<span class="activeDot"></span>
+        <img src="https://iili.io/29tkxkv.png" alt="Avatar" class="avatar" id="avatar">
+        <span class="contact-name" id="contactName">John Doe</span>
+      </div>
+	  <div class="chat-header-right-icons">
+		<img src="https://iili.io/2J89E6N.png" alt="Fake Call Button" class="handset-icon">
+		<img src="https://iili.io/2J8OF07.png" alt="Fake Hamburger Menu" class="three-dots">
+	  </div>
+      <div class="status" style="display:none">Online</div>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+      <div class="message received">
+        <span class="message-content">Hey, are you coming to the party later?</span>
+        <span class="message-time">12:15 PM</span>
+		<div class="message-icons" style="display: none;">
+			<span class="pencil">✏️</span>
+			<span class="delete">🗑️</span>
+		</div>
+      </div>
+      
+      <div class="message sent">
+        <span class="message-content">Yeah, I’ll be there around 7!</span>
+        <span class="message-time">12:17 PM</span>
+		<div class="message-icons" style="display: none;">
+			<span class="pencil">✏️</span>
+			<span class="delete">🗑️</span>
+		</div>
+      </div>
+      
+      <div class="message received">
+        <span class="message-content">Great! See you then.</span>
+        <span class="message-time">12:18 PM</span>
+		<div class="message-icons" style="display: none;">
+			<span class="pencil">✏️</span>
+			<span class="delete">🗑️</span>
+		</div>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" placeholder="Type a message..." class="input-field">
+      <div class="send-arrow"></div>
+    </div>
+  </div>
+  
+  <!-- Buttons to Add Messages Outside the Phone Display -->
+  <div class="control-panel">
+	<div class="control-buttons">
+		<button id="defaultAvatar">Reset Default Avatar</button>
+	</div>
+	<div class="control-buttons">
+		<button id="changeAvatar">Change Contact Avatar</button>
+		<button id="changeName">Change Contact Name</button>
+	</div>
+	<div class="control-message">
+		<input type="text" id="newMessageText" placeholder="Message to add">
+		<input type="text" id="newMessageTime" placeholder="New message's time">
+	</div>
+	<div class="control-buttons">
+		<button onclick="addReceiverMessage()">Add Received Message</button>
+		<button onclick="addSenderMessage()">Add Sent Message</button>
+	</div>
+	<div class="control-buttons">
+		<button id="addSenderPhoto">Add Sender Photo</button>
+		<button id="addReceiverPhoto">Add Receiver Photo</button>
+	</div>
+	<div class="control-buttons">
+		<button id="export">Export to local JSON</button>
+		<input type="file" id="import"/>
+	</div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
