@@ -236,17 +236,30 @@ function importMessages() {
   document.getElementById('import').value = '';
 }
 
+function downloadImage() {
+	const chatContainer = document.getElementById('chatContainer');
+	
+	html2canvas(chatContainer, {useCORS: true}).then(canvas => {
+		const image = canvas.toDataURL('image/png');
+		const link = document.createElement('a');
+		link.href = image;
+		link.download = 'chat-image.png';
+		link.click();
+	});
+}
+
 // Initially add click listeners to all existing messages
 window.onload = () => {
   addMessageClickListeners();
+  document.getElementById('addSenderPhoto').addEventListener('click', () => addPhotoMessage(true));
+  document.getElementById('addReceiverPhoto').addEventListener('click', () => addPhotoMessage(false));
+  document.getElementById('changeAvatar').addEventListener('click', () => changeContactAvatar());
+  document.getElementById('changeName').addEventListener('click', () => changeContactName());
+  document.getElementById('defaultAvatar').addEventListener('click', () => resetDefaultAvatar());
+  document.getElementById('export').addEventListener('click', () => exportMessages());
+  document.getElementById('import').addEventListener('change', () => importMessages());
+document.getElementById('downloadImage').addEventListener('click', () => downloadImage());
 };
-document.getElementById('addSenderPhoto').addEventListener('click', () => addPhotoMessage(true));
-document.getElementById('addReceiverPhoto').addEventListener('click', () => addPhotoMessage(false));
-document.getElementById('changeAvatar').addEventListener('click', () => changeContactAvatar());
-document.getElementById('changeName').addEventListener('click', () => changeContactName());
-document.getElementById('defaultAvatar').addEventListener('click', () => resetDefaultAvatar());
-document.getElementById('export').addEventListener('click', () => exportMessages());
-document.getElementById('import').addEventListener('change', () => importMessages());
 
 const chatBox = document.getElementById('chatBox');
 
